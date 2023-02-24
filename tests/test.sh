@@ -15,4 +15,7 @@ echo "Compaction succeeded in $COMPACTION_TIME"
 echo "New segment store size is $SEGMENT_STORE_SIZE"
 echo "Date of compaction is $DATE_TIME
 
+        in=`ssh d224825-050.dc.gs.com "$(du -sh /local/scratch/gsamaem6/cq-author/adobeaem/repository/index | awk -F'[MGK]' '{print $1}')"`
+
+
 
