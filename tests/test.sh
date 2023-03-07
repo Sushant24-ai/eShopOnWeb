@@ -18,4 +18,10 @@ echo "Date of compaction is $DATE_TIME
         in=`ssh d224825-050.dc.gs.com "$(du -sh /local/scratch/gsamaem6/cq-author/adobeaem/repository/index | awk -F'[MGK]' '{print $1}')"`
 
 
+openssl req -new -nodes -sha256 -keyout <name of certificate>.key -out <name of certificate>.csr 
+-subj "/O=Goldman Sachs & Co. LLC/OU=Technology/C=US/ST=New York/L=Jersey City/CN=<name of certificate>/emailAddress=gs-am-it-digital-infra@ny.email.gs.com -passin pass:gsam" 
+-reqexts SAN -config <(cat /etc/pki/tls/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:<name of certificate>, DNS:assetmanagement-email-qa.gs.com"))
+
+
+
 
